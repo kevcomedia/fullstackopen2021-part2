@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Search from './components/Search'
 import Form from './components/Form'
 import PhonebookEntries from './components/PhonebookEntries'
 
@@ -41,14 +42,10 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      <p>
-        filter shown with{' '}
-        <input
-          type="search"
-          value={searchTerm}
-          onChange={handleSearchTermChange}
-        />
-      </p>
+      <Search
+        searchTerm={searchTerm}
+        onSearchTermChange={handleSearchTermChange}
+      />
 
       <h2>Add an entry</h2>
       <Form

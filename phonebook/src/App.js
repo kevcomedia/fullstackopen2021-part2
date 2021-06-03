@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PhonebookEntries from './components/PhonebookEntries'
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -62,13 +63,7 @@ const App = () => {
       </form>
 
       <h2>Numbers</h2>
-      <ul>
-        {entriesToShow.map((person) => (
-          <li key={person.name}>
-            {person.name} {person.number}
-          </li>
-        ))}
-      </ul>
+      <PhonebookEntries entries={entriesToShow} />
     </div>
   )
 }

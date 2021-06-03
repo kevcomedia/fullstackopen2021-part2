@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Form from './components/Form'
 import PhonebookEntries from './components/PhonebookEntries'
 
 const App = () => {
@@ -50,17 +51,13 @@ const App = () => {
       </p>
 
       <h2>Add an entry</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          name: <input value={newName} onChange={handleNameChange} />
-        </div>
-        <div>
-          number: <input value={newNumber} onChange={handleNumberChange} />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
+      <Form
+        name={newName}
+        number={newNumber}
+        onNameChange={handleNameChange}
+        onNumberChange={handleNumberChange}
+        onSubmit={handleSubmit}
+      />
 
       <h2>Numbers</h2>
       <PhonebookEntries entries={entriesToShow} />

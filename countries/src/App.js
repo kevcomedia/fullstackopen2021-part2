@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Country from './components/Country'
 
 const App = () => {
   const [countries, setCountries] = useState([])
@@ -37,6 +38,10 @@ const App = () => {
             <li key={country.name}>{country.name}</li>
           ))}
         </ul>
+      )}
+
+      {matchingCountries.length === 1 && (
+        <Country country={matchingCountries[0]} />
       )}
     </div>
   )

@@ -30,6 +30,14 @@ const App = () => {
       {matchingCountries.length > 10 && (
         <p>Too many matches, specify another filter</p>
       )}
+
+      {1 < matchingCountries.length && matchingCountries.length <= 10 && (
+        <ul>
+          {matchingCountries.map((country) => (
+            <li key={country.name}>{country.name}</li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }

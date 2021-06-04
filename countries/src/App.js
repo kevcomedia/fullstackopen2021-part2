@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import SearchResults from './components/SearchResults'
 import Country from './components/Country'
 
 const App = () => {
@@ -30,13 +31,7 @@ const App = () => {
         <p>Too many matches, specify another filter</p>
       )}
 
-      {1 < matchingCountries.length && matchingCountries.length <= 10 && (
-        <ul>
-          {matchingCountries.map((country) => (
-            <li key={country.name}>{country.name}</li>
-          ))}
-        </ul>
-      )}
+      <SearchResults results={matchingCountries} />
 
       {matchingCountries.length === 1 && (
         <Country country={matchingCountries[0]} />

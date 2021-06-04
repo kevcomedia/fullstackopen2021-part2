@@ -27,7 +27,7 @@ const App = () => {
         find countries:{' '}
         <input type="search" value={search} onChange={handleSearchChange} />
       </p>
-      {matchingCountries.length > 10 && (
+      {search !== '' && matchingCountries.length > 10 && (
         <p>Too many matches, specify another filter</p>
       )}
 

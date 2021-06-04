@@ -3,6 +3,7 @@ import axios from 'axios'
 
 const App = () => {
   const [countries, setCountries] = useState([])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     axios.get('https://restcountries.eu/rest/v2/all').then((response) => {
@@ -10,9 +11,20 @@ const App = () => {
     })
   }, [])
 
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value)
+  }
+
   console.log(countries)
 
-  return <p>countries</p>
+  return (
+    <div>
+      <p>
+        find countries:{' '}
+        <input type="search" value={search} onChange={handleSearchChange} />
+      </p>
+    </div>
+  )
 }
 
 export default App

@@ -20,8 +20,6 @@ const App = () => {
     country.name.toLowerCase().includes(search.toLowerCase())
   )
 
-  console.log(matchingCountries)
-
   return (
     <div>
       <p>

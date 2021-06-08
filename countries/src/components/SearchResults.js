@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchResult from './SearchResult'
 
 const SearchResults = ({ results }) => {
   if (results.length <= 1 || results.length > 10) {
@@ -8,7 +9,7 @@ const SearchResults = ({ results }) => {
   return (
     <ul>
       {results.map((country) => (
-        <li key={country.name}>{country.name}</li>
+        <SearchResult country={country} key={country.name} />
       ))}
     </ul>
   )

@@ -1,12 +1,11 @@
 import React from 'react'
+import PhonebookEntry from './PhonebookEntry'
 
 const PhonebookEntries = ({ entries }) => {
   return (
     <ul>
       {entries.map((entry) => (
-        <li key={entry.name}>
-          {entry.name} {entry.number}
-        </li>
+        <PhonebookEntry entry={entry} key={entry.name} />
       ))}
     </ul>
   )

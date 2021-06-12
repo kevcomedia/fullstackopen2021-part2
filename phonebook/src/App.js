@@ -34,21 +34,44 @@ const App = () => {
     }
   }
 
+  const updatePersons = (existingEntry) => {
+    const willUpdateNumber = window.confirm(
+      `${newName} is already added to phonebook, replace the current number with a new one?`
+    )
+
+    if (!willUpdateNumber) return
+
+    personService
+      .update(existingEntry.id, { ...existingEntry, number: newNumber })
+      .then((updatedPerson) => {
+        setPersons(
+          persons.map((person) =>
+            person.id === existingEntry.id ? updatedPerson : person
+          )
+        )
+      })
+  }
+
+  const addPerson = () => {
+    const newPerson = {
+      name: newName,
+      number: newNumber,
+    }
+    personService.create(newPerson).then((person) => {
+      setPersons(persons.concat(person))
+      setNewName('')
+      setNewNumber('')
+    })
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    const isAlreadyAdded = persons.some((person) => person.name === newName)
-    if (isAlreadyAdded) {
-      alert(`${newName} is already added to phonebook`)
+
+    const existingEntry = persons.find((person) => person.name === newName)
+    if (existingEntry) {
+      updatePersons(existingEntry)
     } else {
-      const newPerson = {
-        name: newName,
-        number: newNumber,
-      }
-      personService.create(newPerson).then((person) => {
-        setPersons(persons.concat(person))
-        setNewName('')
-        setNewNumber('')
-      })
+      addPerson()
     }
   }
 

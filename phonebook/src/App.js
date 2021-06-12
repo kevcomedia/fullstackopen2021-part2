@@ -26,6 +26,14 @@ const App = () => {
     setSearchTerm(event.target.value)
   }
 
+  const handleDelete = ({ id, name }) => {
+    if (window.confirm(`Delete ${name}?`)) {
+      personService.delete(id).then(() => {
+        setPersons(persons.filter((person) => person.id !== id))
+      })
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
     const isAlreadyAdded = persons.some((person) => person.name === newName)
@@ -66,7 +74,7 @@ const App = () => {
       />
 
       <h2>Numbers</h2>
-      <PhonebookEntries entries={entriesToShow} />
+      <PhonebookEntries entries={entriesToShow} onDelete={handleDelete} />
     </div>
   )
 }

@@ -33,7 +33,13 @@ const App = () => {
       personService
         .delete(id)
         .catch(() => {
-          alert(`Information of ${name} has already been removed from server`)
+          setNotification({
+            success: false,
+            message: `Information of ${name} has already been removed from server`,
+          })
+          setTimeout(() => {
+            setNotification('')
+          }, 5000)
         })
         .then(() => {
           setPersons(persons.filter((person) => person.id !== id))

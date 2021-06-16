@@ -10,6 +10,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
+  const [notification, setNotification] = useState('')
 
   useEffect(() => {
     personService.getAll().then((persons) => setPersons(persons))
@@ -45,6 +46,10 @@ const App = () => {
     personService
       .update(existingEntry.id, { ...existingEntry, number: newNumber })
       .then((updatedPerson) => {
+        setNotification(`Updated ${updatedPerson.name}`)
+        setTimeout(() => {
+          setNotification('')
+        }, 5000)
         setPersons(
           persons.map((person) =>
             person.id === existingEntry.id ? updatedPerson : person
@@ -83,7 +88,7 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
-      <Notification message="hi" />
+      <Notification message={notification} />
       <Search
         searchTerm={searchTerm}
         onSearchTermChange={handleSearchTermChange}

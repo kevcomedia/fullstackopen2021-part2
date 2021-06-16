@@ -64,6 +64,10 @@ const App = () => {
       number: newNumber,
     }
     personService.create(newPerson).then((person) => {
+      setNotification(`Added ${person.name}`)
+      setTimeout(() => {
+        setNotification('')
+      }, 5000)
       setPersons(persons.concat(person))
       setNewName('')
       setNewNumber('')

@@ -30,9 +30,14 @@ const App = () => {
 
   const handleDelete = ({ id, name }) => {
     if (window.confirm(`Delete ${name}?`)) {
-      personService.delete(id).then(() => {
-        setPersons(persons.filter((person) => person.id !== id))
-      })
+      personService
+        .delete(id)
+        .catch(() => {
+          alert(`Information of ${name} has already been removed from server`)
+        })
+        .then(() => {
+          setPersons(persons.filter((person) => person.id !== id))
+        })
     }
   }
 

@@ -3,6 +3,7 @@ import personService from './services/persons'
 import Search from './components/Search'
 import Form from './components/Form'
 import PhonebookEntries from './components/PhonebookEntries'
+import Notification from './components/Notification'
 
 const App = () => {
   const [persons, setPersons] = useState([])
@@ -82,6 +83,7 @@ const App = () => {
   return (
     <div>
       <h1>Phonebook</h1>
+      <Notification message="hi" />
       <Search
         searchTerm={searchTerm}
         onSearchTermChange={handleSearchTermChange}

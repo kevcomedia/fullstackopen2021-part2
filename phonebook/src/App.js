@@ -77,18 +77,29 @@ const App = () => {
       name: newName,
       number: newNumber,
     }
-    personService.create(newPerson).then((person) => {
-      setNotification({
-        success: true,
-        message: `Added ${person.name}`,
+    personService
+      .create(newPerson)
+      .then((person) => {
+        setNotification({
+          success: true,
+          message: `Added ${person.name}`,
+        })
+        setTimeout(() => {
+          setNotification('')
+        }, 5000)
+        setPersons(persons.concat(person))
+        setNewName('')
+        setNewNumber('')
       })
-      setTimeout(() => {
-        setNotification('')
-      }, 5000)
-      setPersons(persons.concat(person))
-      setNewName('')
-      setNewNumber('')
-    })
+      .catch((error) => {
+        setNotification({
+          success: false,
+          message: error.response.data.error,
+        })
+        setTimeout(() => {
+          setNotification('')
+        }, 5000)
+      })
   }
 
   const handleSubmit = (event) => {

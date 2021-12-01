@@ -70,6 +70,15 @@ const App = () => {
           )
         )
       })
+      .catch((error) => {
+        setNotification({
+          success: false,
+          message: error.response.data.error,
+        })
+        setTimeout(() => {
+          setNotification('')
+        }, 5000)
+      })
   }
 
   const addPerson = () => {

@@ -127,8 +127,8 @@ const App = () => {
   )
 
   return (
-    <div className="container mx-auto mt-6">
-      <h1 className="text-3xl font-bold mb-2">Phonebook</h1>
+    <div className="container mx-auto mt-6 text-slate-700">
+      <h1 className="text-3xl font-bold text-slate-900 mb-2">Phonebook</h1>
       <Notification notification={notification} />
 
       <div className="mb-3">
@@ -139,7 +139,7 @@ const App = () => {
       </div>
 
       <div className="mb-3">
-        <h2 className="text-xl font-bold">Add an entry</h2>
+        <h2 className="text-xl font-bold text-slate-900">Add an entry</h2>
         <Form
           name={newName}
           number={newNumber}
@@ -149,7 +149,7 @@ const App = () => {
         />
       </div>
 
-      <h2 className="text-xl font-bold">Numbers</h2>
+      <h2 className="text-xl font-bold text-slate-900">Numbers</h2>
       <PhonebookEntries entries={entriesToShow} onDelete={handleDelete} />
     </div>
   )

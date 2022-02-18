@@ -127,15 +127,15 @@ const App = () => {
   )
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <div className="container mx-auto mt-6">
+      <h1 className="text-3xl font-bold mb-2">Phonebook</h1>
       <Notification notification={notification} />
       <Search
         searchTerm={searchTerm}
         onSearchTermChange={handleSearchTermChange}
       />
 
-      <h2>Add an entry</h2>
+      <h2 className="text-xl font-bold">Add an entry</h2>
       <Form
         name={newName}
         number={newNumber}
@@ -144,7 +144,7 @@ const App = () => {
         onSubmit={handleSubmit}
       />
 
-      <h2>Numbers</h2>
+      <h2 className="text-xl font-bold">Numbers</h2>
       <PhonebookEntries entries={entriesToShow} onDelete={handleDelete} />
     </div>
   )

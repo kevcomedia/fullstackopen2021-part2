@@ -8,7 +8,10 @@ const PhonebookEntry = ({ entry, onDelete }) => {
 
   return (
     <li>
-      {entry.name} {entry.number} <Button onClick={handleDelete}>delete</Button>
+      {entry.name} {entry.number}{' '}
+      <Button onClick={handleDelete} x_type="danger">
+        delete
+      </Button>
     </li>
   )
 }

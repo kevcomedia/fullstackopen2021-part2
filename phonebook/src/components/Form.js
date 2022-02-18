@@ -12,7 +12,7 @@ const Form = ({ name, number, onNameChange, onNumberChange, onSubmit }) => {
         number: <Input value={number} onChange={onNumberChange} />
       </div>
       <div>
-        <Button type="submit">add</Button>
+        <Button type="submit" x_type="primary">add</Button>
       </div>
     </form>
   )

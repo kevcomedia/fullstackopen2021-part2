@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from './Input'
+import Button from './Button'
 
 const Form = ({ name, number, onNameChange, onNumberChange, onSubmit }) => {
   return (
@@ -11,7 +12,7 @@ const Form = ({ name, number, onNameChange, onNumberChange, onSubmit }) => {
         number: <Input value={number} onChange={onNumberChange} />
       </div>
       <div>
-        <button type="submit">add</button>
+        <Button type="submit">add</Button>
       </div>
     </form>
   )

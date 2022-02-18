@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './Button'
 
 const PhonebookEntry = ({ entry, onDelete }) => {
   const handleDelete = () => {
@@ -7,7 +8,7 @@ const PhonebookEntry = ({ entry, onDelete }) => {
 
   return (
     <li>
-      {entry.name} {entry.number} <button onClick={handleDelete}>delete</button>
+      {entry.name} {entry.number} <Button onClick={handleDelete}>delete</Button>
     </li>
   )
 }

@@ -1,13 +1,14 @@
 import React from 'react'
+import Input from './Input'
 
 const Form = ({ name, number, onNameChange, onNumberChange, onSubmit }) => {
   return (
     <form onSubmit={onSubmit}>
       <div>
-        name: <input value={name} onChange={onNameChange} />
+        name: <Input value={name} onChange={onNameChange} />
       </div>
       <div>
-        number: <input value={number} onChange={onNumberChange} />
+        number: <Input value={number} onChange={onNumberChange} />
       </div>
       <div>
         <button type="submit">add</button>

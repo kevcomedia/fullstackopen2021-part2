@@ -130,19 +130,24 @@ const App = () => {
     <div className="container mx-auto mt-6">
       <h1 className="text-3xl font-bold mb-2">Phonebook</h1>
       <Notification notification={notification} />
-      <Search
-        searchTerm={searchTerm}
-        onSearchTermChange={handleSearchTermChange}
-      />
 
-      <h2 className="text-xl font-bold">Add an entry</h2>
-      <Form
-        name={newName}
-        number={newNumber}
-        onNameChange={handleNameChange}
-        onNumberChange={handleNumberChange}
-        onSubmit={handleSubmit}
-      />
+      <div className="mb-3">
+        <Search
+          searchTerm={searchTerm}
+          onSearchTermChange={handleSearchTermChange}
+        />
+      </div>
+
+      <div className="mb-3">
+        <h2 className="text-xl font-bold">Add an entry</h2>
+        <Form
+          name={newName}
+          number={newNumber}
+          onNameChange={handleNameChange}
+          onNumberChange={handleNumberChange}
+          onSubmit={handleSubmit}
+        />
+      </div>
 
       <h2 className="text-xl font-bold">Numbers</h2>
       <PhonebookEntries entries={entriesToShow} onDelete={handleDelete} />

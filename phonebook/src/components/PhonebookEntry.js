@@ -7,7 +7,7 @@ const PhonebookEntry = ({ entry, onDelete }) => {
   }
 
   return (
-    <li>
+    <li className="mb-0.5">
       <b className="text-slate-800">{entry.name}</b> <span>{entry.number}</span>{' '}
       <Button onClick={handleDelete} x_type="danger">
         delete

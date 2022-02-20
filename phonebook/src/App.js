@@ -127,7 +127,7 @@ const App = () => {
   )
 
   return (
-    <div className="container mx-auto mt-6 text-slate-700">
+    <div className="container max-w-3xl px-6 mx-auto mt-6 text-slate-700">
       <h1 className="text-3xl font-bold text-slate-900 mb-2">Phonebook</h1>
       <Notification notification={notification} />
 

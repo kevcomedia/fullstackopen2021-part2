@@ -5,7 +5,7 @@ import Button from './Button'
 const Form = ({ name, number, onNameChange, onNumberChange, onSubmit }) => {
   return (
     <form onSubmit={onSubmit}>
-      <div>
+      <div className="mb-0.5">
         name: <Input value={name} onChange={onNameChange} />
       </div>
       <div>
